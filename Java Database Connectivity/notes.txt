@@ -1,0 +1,88 @@
+JAva JDBC is a java API to connect and execute queries with a database. 
+JDBC API uses jdbc drivers to connect to the database.
+
+Why use JDBC?
+    To handle database using java program to perfom the following
+        1. connect to the database
+        2. Execute queries and update statements to the database
+        3. Retrieve the result from the database
+
+JDBC drivers:
+    Is a software component that enables java app to interact with the database.
+    There are four types:
+        1. JDBC-ODBC bridge drivers
+        2. Native-API driver (partially java)
+        3. Network Protocol driver (fully java)
+        4. Thin driver (fully java driver)
+
+1. JDBC-ODBC bridge driver
+    The JDBC-ODBC bridge driver uses ODBC driver to connect to the database.
+    The JDBC-ODBC bridge driver converts JDBC method calls into the ODBC function calls. 
+    This is now discouraged because of thin driver. 
+
+Advantages:
+    easy to use.
+    can be easily connected to any database.
+
+Disadvantages:
+    Performance degraded because JDBC method call is converted into the ODBC function calls.
+    The ODBC driver needs to be installed on the client machine.
+
+2. Native-API driver
+    The Native API driver uses the client-side libraries of the database. 
+    The driver converts JDBC method calls into native calls of the database API. 
+    It is not written entirely in java. 
+
+Advantage:
+    Performance upgraded than JDBC-ODBC bridge driver.
+
+Disadvantage:
+    The Native driver needs to be installed on the each client machine.
+    The Vendor client library needs to be installed on client machine.
+
+
+3. Network Protocol driver
+    The Network Protocol driver uses middleware (application server) that converts JDBC 
+    calls directly or indirectly into the vendor-specific database protocol. 
+    It is fully written in java. 
+
+Advantage:
+    No client side library is required because of application server that can perform many
+    tasks like auditing, load balancing, logging etc.
+
+Disadvantages:
+    Network support is required on client machine.
+    Requires database-specific coding to be done in the middle tier.
+    Maintenance of Network Protocol driver becomes costly because it
+    requires database-specific  coding to be done in the middle tier.
+
+4. Thin driver
+    The thin driver converts JDBC calls directly into the vendor-specific database
+    protocol. That is why it is known as thin driver. It is fully written in Java language. 
+
+Advantage:
+    Better performance than all other drivers.
+    No software is required at client side or server side.
+
+Disadvantage:
+    Drivers depends on the Database.
+
+
+Steps to connect to the database in java:
+
+There are 5 steps to connect any java application with the database in java using JDBC. They are as follows:
+
+    1. Register the driver class
+    2. Creating connection
+    3. Creating statement
+    4. Executing queries
+    5. Closing connection
+
+To Register the OracleDriver class
+    Class.forName("oracle.jdbc.driver.OracleDriver");
+    
+
+
+
+
+
